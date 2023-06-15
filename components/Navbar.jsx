@@ -18,7 +18,7 @@ const Navbar = () => {
             <img src="/logo.svg" className="h-8 w-8 mr-4"/>
             {
               nav.map(({ name, url }) => (
-                <Link key={name.toString()} href={ url } className="px-4 hidden md:block text-gray-900 text-lg font-semibold">
+                <Link href={url} key={name.toString()} className="px-4 hidden md:block text-gray-900 text-lg font-semibold">
                   { name }
                 </Link>
               ))

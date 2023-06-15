@@ -1,6 +1,4 @@
 import Head from 'next/head'
-import CounterExample from '../components/counterExample'
-import Products from '../components/indexPage/Products'
 
 const ProductsPage = () => {
   return (

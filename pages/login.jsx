@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Link from 'next/link'
 import { useSelector, useDispatch } from 'react-redux'
 import { setToken, deleteToken } from '../slices/userSlice'
 

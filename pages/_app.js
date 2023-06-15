@@ -7,7 +7,7 @@ import { Provider } from 'react-redux'
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
-      <ThemeProvider forcedTheme={Component.theme || undefined} defaultTheme="system" enableSystem={true}  attribute="class">
+      <ThemeProvider forcedTheme={Component.theme || undefined} defaultTheme="white" enableSystem={false}  attribute="class">
         <Component {...pageProps} />
       </ThemeProvider>
     </Provider>
