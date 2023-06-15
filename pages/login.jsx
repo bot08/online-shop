@@ -1,20 +1,27 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { useSelector, useDispatch } from 'react-redux'
+import { setToken, deleteToken } from '../slices/userSlice'
 
 const Login = () => {
+  const userToken = useSelector((state) => state.user.token)
+  const dispatch = useDispatch()
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // TODO fix login
     fetch('https://fakestoreapi.com/auth/login',{
       method:'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
       body:JSON.stringify({
         username: e.target.name.value, // mor_2314
         password: e.target.password.value // 83r5^_
       })
     })
-    .then(res=>res.json())
-    .then(json=>console.log(json))
+    .then(res => res.json())
+    .then(json => dispatch(setToken(json.token)))
   };
 
   return (
@@ -46,6 +53,8 @@ const Login = () => {
             Sign in
           </button>
         </form>
+        {/* DEBUG */}
+        <div className="truncate">{ userToken == null ? 'null' : userToken }</div>
       </div>
     </>
   )

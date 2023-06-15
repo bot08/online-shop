@@ -26,10 +26,10 @@ const Navbar = () => {
           </div>
           {/* Right */}
           <div className="flex justify-center items-center">
-            <Link href='/login' className="px-4 py-1 mr-4 bg-green-600 text-white text-normal rounded-xl shadow">
+            <Link href="/login" className="px-4 py-1 mr-4 bg-green-600 text-white text-normal rounded-xl shadow">
               Sign in
             </Link>
-            <Link href='/register' className="px-4 py-1 bg-green-600 text-white text-normal rounded-xl shadow">
+            <Link href="/register" className="px-4 py-1 bg-green-600 text-white text-normal rounded-xl shadow">
               Register
             </Link>
           </div>
