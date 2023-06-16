@@ -17,7 +17,8 @@ const Navbar = () => {
           {/* Left */}
           <div className="flex justify-center items-center">
             <Link href="/">
-              <img src="/logo.svg" className="h-8 w-8 mr-4"/>
+              <img src="/logo.svg" className="h-8 w-8 mr-4" alt="logo"/>
+              <span className="sr-only">Logo</span>
             </Link>
             {
               nav.map(({ name, url }) => (

@@ -1,7 +1,19 @@
 import Head from 'next/head'
+import { useSelector } from 'react-redux'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
 const CardPage = () => {
-  // todo redirect
+  const userToken = useSelector((state) => state.user.token)
+
+  const router = useRouter();
+  
+  // login when not log in
+  useEffect(() => {
+    if (!userToken) {
+      router.push('/login');
+    }
+  }, [userToken]);
 
   return (
     <>

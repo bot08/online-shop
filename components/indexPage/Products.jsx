@@ -15,7 +15,7 @@ const Products = () => {
         data.map(({ id, title, price, category, description, image }) => (
           <div key={id.toString()} className='m-4 p-3 bg-white shadow rounded-xl'>
             <Link href={`/products/${id}`}>
-              <img src={image} className='mb-3 mx-auto h-32 md:h-40'/>
+              <img src={image} className='mb-3 mx-auto h-32 md:h-40' alt=''/>
               <h3 className='text-lx text-gray-900 font-semibold'>{ title }</h3>
               <hr className="my-2 border-gray-300"/>
               {/* <h3 className='text-base text-gray-900 truncate'>{ description }</h3> */}
