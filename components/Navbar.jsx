@@ -1,6 +1,7 @@
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import UserNav from "./UserNav"
 
 const nav = [
   { name: 'Home', url: '/'},
@@ -15,7 +16,9 @@ const Navbar = () => {
         <div className="flex sm:flex-row justify-between container mx-auto">
           {/* Left */}
           <div className="flex justify-center items-center">
-            <img src="/logo.svg" className="h-8 w-8 mr-4"/>
+            <Link href="/">
+              <img src="/logo.svg" className="h-8 w-8 mr-4"/>
+            </Link>
             {
               nav.map(({ name, url }) => (
                 <Link href={url} key={name.toString()} className="px-4 hidden md:block text-gray-900 text-lg font-semibold">
@@ -26,12 +29,7 @@ const Navbar = () => {
           </div>
           {/* Right */}
           <div className="flex justify-center items-center">
-            <Link href="/login" className="px-4 py-1 mr-4 bg-green-600 text-white text-normal rounded-xl shadow">
-              Sign in
-            </Link>
-            <Link href="/register" className="px-4 py-1 bg-green-600 text-white text-normal rounded-xl shadow">
-              Register
-            </Link>
+            <UserNav/>
           </div>
         </div>
       </div>

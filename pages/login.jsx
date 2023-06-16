@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useSelector, useDispatch } from 'react-redux'
-import { setToken, deleteToken } from '../slices/userSlice'
+import { setToken } from '../slices/userSlice'
+import { useRouter } from 'next/router'
 
 const Login = () => {
   const userToken = useSelector((state) => state.user.token)
@@ -23,6 +24,13 @@ const Login = () => {
     .then(json => dispatch(setToken(json.token)))
   };
 
+  const router = useRouter();
+
+  // redirect when log in
+  if (userToken) {
+    router.push('/profile')
+  }
+
   return (
     <>
       <Head>
@@ -36,14 +44,14 @@ const Login = () => {
           {/* Name input */}
           <div className="mb-4">
             <label className="block text-gray-900 text-sm font-bold mb-2 ml-1">
-              Username
+              Username  (mor_2314)
             </label>
             <input id="name" required type="text" placeholder="Username" className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-900 leading-tight focus:outline focus:shadow-outline"/>
           </div>
           {/* Password input */}
           <div className="mb-4">
             <label className="block text-gray-900 text-sm font-bold mb-2 ml-1">
-              Password
+              Password  (83r5^_)
             </label>
             <input id="password" required type="password" placeholder="Password" autoComplete="true" className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-900 leading-tight focus:outline focus:shadow-outline"/>
           </div>
@@ -52,8 +60,6 @@ const Login = () => {
             Sign in
           </button>
         </form>
-        {/* DEBUG */}
-        <div className="truncate">{ userToken == null ? 'null' : userToken }</div>
       </div>
     </>
   )
