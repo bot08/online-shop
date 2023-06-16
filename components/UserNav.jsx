@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useSelector } from 'react-redux'
 
-const Navbar = () => {
+const UserNav = () => {
   const userToken = useSelector((state) => state.user.token)
 
   return (
@@ -30,4 +30,4 @@ const Navbar = () => {
 }         
 
 
-export default Navbar
+export default UserNav
