@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import useSWR from 'swr'
 import Link from 'next/link'
 import NotFound from '../404'
+import Loader from '../../components/ProductId/Loader'
 
 export default function productPage() {
   const router = useRouter()
@@ -10,7 +11,7 @@ export default function productPage() {
   const { data, error, isLoading } = useSWR(`https://fakestoreapi.com/products/${router.query.id}`, fetcher)
  
   if (error) return <NotFound/>
-  if (isLoading) return <div>Loading</div>
+  if (isLoading) return <Loader/>
 
 
   return (
