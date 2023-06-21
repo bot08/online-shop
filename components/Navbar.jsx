@@ -2,6 +2,7 @@ import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import UserNav from "./UserNav"
+import NavBurger from './NavBurger'
 
 const nav = [
   { name: 'Home', url: '/'},
@@ -30,7 +31,12 @@ const Navbar = () => {
           </div>
           {/* Right */}
           <div className="flex justify-center items-center">
-            <UserNav/>
+            <div className='hidden md:flex'>
+              <UserNav/>
+            </div>
+            <div className='flex md:hidden'>
+              <NavBurger navProps={nav}/>
+            </div>
           </div>
         </div>
       </div>
