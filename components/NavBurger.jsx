@@ -11,20 +11,20 @@ const MobileNav = ({ navProps }) => {
 
   return (
     <>
-      <img onClick={changeNav} src="/burger-menu.svg" className="h-8 w-8 cursor-pointer"/>
+      <img onClick={changeNav} src={navOpen ? "/x-icon.svg" : "/burger-menu.svg"} className="h-8 w-8 cursor-pointer"/>
       {
         navOpen &&
         (
-          <div className="fixed inset-0 z-30 bg-white/50 backdrop-blur">
-            <div className="bg-white mt-20 mx-4 py-2 rounded-xl shadow">
+          <div className="fixed inset-0 z-20 mt-14 bg-white/50 backdrop-blur">
+            <div className="bg-white mt-8 mx-4 py-2 rounded-xl shadow">
               {
                 navProps.map(({ name, url }) => (
-                  <Link href={url} key={name.toString()} className="px-4 py-1 text-gray-900 text-xl font-semibold block">
+                  <Link href={url} onClick={changeNav} key={name.toString()} className="px-4 py-1 text-gray-900 text-xl font-semibold block">
                     { name }
                   </Link>
                 ))
               }
-              <div className="flex justify-center items-center py-2">
+              <div onClick={changeNav} className="flex justify-center items-center py-2">
                 <UserNav/>
               </div>
             </div>
